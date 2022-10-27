@@ -6,7 +6,7 @@ Este trabalho faz parte do roteiro de aprendizagem da Trilha de Azure DevOps com
 - Usar modelos para criar várias configurações;
 
 ## :pushpin: Descrição/ contexto
-A Tailspin hospeda seus servidores de jogos e sites em um datacenter local. Eles vão lançar um jogo de tiros no espaço, chamado Space Game, nos próximos meses. Cada site precisa entrar no ar no mesmo dia em que o jogo é lançado e faltando pouco tempo o Gerente de Produtos está preocupado com a falta de entrega rápida devido o processo de lançamento da equipe ter diversos problemas em seus processos. O site do Space Game é um aplicativo .NET escrito em C# implantado no Linux. O site ainda não foi concluído, mas no momento ele está assim: https://tailspin-spacegame-web.azurewebsites.net/
+A Tailspin hospeda seus servidores de jogos e sites em um datacenter local. Eles vão lançar um jogo de tiros no espaço, chamado Space Game, nos próximos meses. Cada site precisa entrar no ar no mesmo dia em que o jogo é lançado e faltando pouco tempo o Gerente de Produtos está preocupado com a falta de entrega rápida devido o processo de lançamento da equipe ter diversos problemas em seus processos. O site do Space Game é um aplicativo .NET escrito em C# implantado no Linux. O site ainda não foi concluído, mas no momento o [SpaceGame-Web](https://tailspin-spacegame-web.azurewebsites.net/) está assim.
 
 Uma desenvolvedora recém contrata, chamada Clara, com experiência em DevOps, faz algumas anotações, afim de ajudar a equipe á melhorar seus processos, como:
 - Bastante processos manuais
