@@ -1,65 +1,27 @@
+## Objetivo
+Este trabalho faz parte do roteiro de aprendizagem da Trilha de Azure DevOps com o objetivo de entender os principais conceitos e práticas DevOps aplicando em um case de lançamento de jogo da empresa chamada de Tailispin. Práticas: 
+- Criar um pipeline de build no Azure Pipelines (.yaml);
+- Mapear etapas de build manuais para tarefas de build automatizadas;
+- Publicar seus builds, para que outras pessoas possam acessá-los;
+- Usar modelos para criar várias configurações;
 
-# Contributing
+## Descrição/ contexto
+A Tailspin hospeda seus servidores de jogos e sites em um datacenter local. Eles vão lançar um jogo de tiros no espaço, chamado Space Game, nos próximos meses. Cada site precisa entrar no ar no mesmo dia em que o jogo é lançado e faltando pouco tempo o Gerente de Produtos está preocupado com a falta de entrega rápida devido o processo de lançamento da equipe ter diversos problemas em seus processos. O site do Space Game é um aplicativo .NET escrito em C# implantado no Linux. O site ainda não foi concluído, mas no momento ele está assim: https://tailspin-spacegame-web.azurewebsites.net/
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
+Uma desenvolvedora recém contrata, chamada Clara, com experiência em DevOps, faz algumas anotações, afim de ajudar a equipe á melhorar seus processos, como:
+- Bastante processos manuais
+- Os testes são  feitos somente no final do processo.
+- Utiliza um sistema de controle de versão centralizado.
+- Falta de comunicação e colaboração entre as equipes - dependente de emails, documentos do Word e planilhas e os comentários também são raros e inconsistentes.
 
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+Uma prática de DevOps geralmente começa com um entendimento dos processos existentes, em seguida, deve avaliar a eficiência do processo com os mapas de fluxo de valor (VSM) o que está funcionando bem, o que não está e se concentrar no que deve ser corrigido primeiro e um quadro Kanban do Azure Boards foi utilizado para organizar as tarefas e definir as prioridades.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-## For maintainers: Updating feature branches
+## Pré-Requisitos
+- Uma Organização do Azure DevOps
+- Git/ GitHub
+- Visual Studio Code
+- SDK do .NET 6.0
 
-This repository uses feature branches to associate code with specific modules on Microsoft Learn. Any changes you make to the default branch will likely need to be propagated to each feature branch in this repo. A common example is when we need to update Node packages in `package.json`.
-
-Here's one way to update the remote feature branches when you make a change to the default branch. Note that this process deletes all local branches except for `main`.
-
-```bash
-# Synchronize with the remote main branch
-git checkout main
-git pull origin main
-# Delete all local branches except for main
-git branch | grep -ve "main" | xargs git branch -D
-# List all remote branches except for main
-branches=$(git branch -r 2> /dev/null | grep -ve "main" | cut -d "/" -f 2)
-# Synchronize each branch with main and push the result
-while IFS= read -r branch; do
-    # Fetch and switch to feature branch
-    git fetch origin $branch
-    git checkout $branch
-    # Ensure local environment is free of extra files
-    git clean -xdf
-    # Merge down main
-    git merge --no-ff main
-    # Break out if merge failed
-    if [ $? -ne 0 ]; then
-        break
-    fi
-    # Push update
-    git push origin $branch
-done <<< "$branches"
-# Switch back to main
-git checkout main
-```
-
-# Legal Notices
-
-Microsoft and any contributors grant you a license to the Microsoft documentation and other content
-in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
-see the [LICENSE](LICENSE) file, and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
-[LICENSE-CODE](LICENSE-CODE) file.
-
-Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation
-may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries.
-The licenses for this project do not grant you rights to use any Microsoft names, logos, or trademarks.
-Microsoft's general trademark guidelines can be found at http://go.microsoft.com/fwlink/?LinkID=254653.
-
-Privacy information can be found at https://privacy.microsoft.com/en-us/
-
-Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
-or trademarks, whether by implication, estoppel or otherwise.
+### Referência
+https://learn.microsoft.com/pt-br/training/paths/evolve-your-devops-practices/
